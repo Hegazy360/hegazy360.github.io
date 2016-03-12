@@ -26,14 +26,12 @@
       <!-- app content : search bar + results -->
 
       <form class="searchBar md-flex" id="searchBar">
-
         <md-input-container class="md-block">
           <label>City</label>
           <input ng-model="searchTerm" autocomplete="off">
         </md-input-container>
-
-        <md-progress-linear class="ng-hide" ng-show="isSearching" md-mode="indeterminate"></md-progress-linear>
       </form>
+      <md-progress-linear class="ng-hide" ng-show="isSearching" md-mode="indeterminate"></md-progress-linear>
 
       <div class="app-content">
         <md-card class="results ng-hide md-flex" ng-show="searchTerm" ng-repeat="dayWeatherData in weatherData.list">

@@ -18,6 +18,11 @@ html,body {
   height: 60px;
   padding-top: 10px;
 }
+
+md-progress-linear {
+  width: 70%;
+
+}
 md-toolbar {
   border-style: solid;
   border-width: 1px;
