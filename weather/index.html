@@ -3,7 +3,7 @@
 
   <head lang="en">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Weather App</title>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" type="text/css">
@@ -24,19 +24,19 @@
 
     <md-content layout="column" layout-align="center center">
       <!-- app content : search bar + results -->
+
+      <form class="searchBar md-flex" id="searchBar">
+
+        <md-input-container class="md-block">
+          <label>City</label>
+          <input ng-model="searchTerm" autocomplete="off">
+        </md-input-container>
+
+        <md-progress-linear class="ng-hide" ng-show="isSearching" md-mode="indeterminate"></md-progress-linear>
+      </form>
+
       <div class="app-content">
-
-        <form class="searchBar" id="searchBar">
-          <div>
-            <md-input-container class="md-block">
-              <label>City</label>
-              <input ng-model="searchTerm" autocomplete="off">
-            </md-input-container>
-          </div>
-          <md-progress-linear class="ng-hide" ng-show="isSearching" md-mode="indeterminate"></md-progress-linear>
-        </form>
-
-        <md-card class="results ng-hide" ng-show="searchTerm" ng-repeat="dayWeatherData in weatherData.list">
+        <md-card class="results ng-hide md-flex" ng-show="searchTerm" ng-repeat="dayWeatherData in weatherData.list">
           <!-- top part of results : overview -->
           <md-card class="show resultsTop" id="resultsTop" layout="row" layout-align="space-around center">
             <h2>{{dayWeatherData.dt * 1000 | date:'dd-MM-yyyy'}}</h2>
