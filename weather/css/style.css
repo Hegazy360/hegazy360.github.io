@@ -15,13 +15,14 @@ html,body {
 .searchBar {
   position: relative;
   width: 70%;
+  min-width: 360px;
   height: 60px;
   padding-top: 10px;
 }
 
 md-progress-linear {
   width: 70%;
-
+  min-width: 360px;
 }
 md-toolbar {
   border-style: solid;
