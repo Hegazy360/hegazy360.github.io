@@ -5,14 +5,18 @@ html,body {
 
 .app-content {
   width: 70%;
+  min-width: 360px;
   left: 10%;
   right: 10%;
+  top: 0;
   overflow: auto;
 
 }
 .searchBar {
   position: relative;
   width: 70%;
+  height: 60px;
+  padding-top: 10px;
 }
 md-toolbar {
   border-style: solid;
@@ -26,7 +30,7 @@ md-toolbar {
 md-card {
   font-family: 'Crete Round', serif;
   font-size: 16px;
-  font-size: 1.4vw;
+  font-size: 1.8vw;
   width: 100%;
   text-indent: 25px;
   margin: auto;
