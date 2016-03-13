@@ -36,7 +36,7 @@ md-toolbar {
 md-card {
   font-family: 'Crete Round', serif;
   font-size: 16px;
-  font-size: 1.8vw;
+  /*font-size: 1.8vw;*/
   width: 100%;
   text-indent: 25px;
   margin: auto;
