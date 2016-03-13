@@ -6,7 +6,6 @@ html,body {
 .app-content {
   width: 70%;
   min-width: 360px;
-  min-height: 540px;
   left: 10%;
   right: 10%;
   top: 0;
@@ -37,7 +36,7 @@ md-toolbar {
 md-card {
   font-family: 'Crete Round', serif;
   font-size: 16px;
-  font-size: 1.8vh;
+  /*font-size: 1.8vw;*/
   width: 100%;
   text-indent: 25px;
   margin: auto;
