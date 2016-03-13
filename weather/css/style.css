@@ -6,7 +6,7 @@ html,body {
 .app-content {
   width: 70%;
   min-width: 360px;
-  min-height: 580px;
+  min-height: 540px;
   left: 10%;
   right: 10%;
   top: 0;
