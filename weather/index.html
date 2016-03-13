@@ -24,16 +24,60 @@
 
     <md-content layout="column" layout-align="center center">
       <!-- app content : search bar + results -->
-
-      <form class="searchBar md-flex" id="searchBar">
-        <md-input-container class="md-block">
-          <label>City</label>
-          <input ng-model="searchTerm" autocomplete="off">
-        </md-input-container>
-      </form>
+      <md-input-container class="md-block searchBar md-flex" id="searchBar" layout="row" layout-align="center none">
+        <label>City</label>
+        <input ng-model="searchTerm" autocomplete="off">
+      </md-input-container>
       <md-progress-linear class="ng-hide" ng-show="isSearching" md-mode="indeterminate"></md-progress-linear>
 
       <div class="app-content">
+
+        <md-card class="results ng-hide md-flex" ng-show="searchTerm">
+
+          <md-card class="show resultsTop" layout="row" layout-align="center center">
+            <h3>Current Weather</h3>
+            <!-- <h2>{{currentWeatherData.dt * 1000 | date:'dd-MM-yyyy'}}</h2> -->
+            <!-- <img src="http://openweathermap.org/img/w/{{currentWeatherData.weather[0].icon}}.png" alt="Weather Icon"/> -->
+            <!-- <h2>{{currentWeatherData.weather[0].main}}</h2> -->
+          </md-card>
+          <!-- bottom part of results : details -->
+          <md-card class="show resultsBottom" layout="column" layout-align="space-around start">
+            <!-- Invisible results table for better alignment -->
+            <table>
+              <tr>
+                <td>
+                  <h3>{{"Place: "}}</h3>
+                </td>
+                <td>
+                  <h3>{{currentWeatherData.name}},{{currentWeatherData.sys.country}}</h3>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <h3>{{"Description: "}}</h3>
+                </td>
+                <td>
+                  <h3>{{currentWeatherData.weather[0].description}}</h3>
+                </td>
+                <td>
+                  <img src="http://openweathermap.org/img/w/{{currentWeatherData.weather[0].icon}}.png" alt="Weather Icon"/>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <h3>{{"Temperature: "}}</h3>
+                </td>
+                <td>
+                  <h3>{{currentWeatherData.main.temp + " &deg;C"}}</h3>
+                </td>
+              </tr>
+            </table>
+          </md-card>
+
+        </md-card>
+
         <md-card class="results ng-hide md-flex" ng-show="searchTerm" ng-repeat="dayWeatherData in weatherData.list">
           <!-- top part of results : overview -->
           <md-card class="show resultsTop" id="resultsTop" layout="row" layout-align="space-around center">
