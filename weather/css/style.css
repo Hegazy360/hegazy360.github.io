@@ -43,6 +43,10 @@ md-card {
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
+.resultsTop{
+text-indent: 0px;
+
+}
 md-content {
   width: 100%;
 }
