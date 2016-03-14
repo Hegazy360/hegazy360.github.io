@@ -42,7 +42,7 @@ md-card {
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
-.resultsTop{
+.resultsTop,.no-indent{
 text-indent: 0px;
 }
 th,td{
