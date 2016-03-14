@@ -15,7 +15,6 @@ html,body {
 .searchBar {
   position: relative;
   width: 70%;
-  min-width: 360px;
   height: 60px;
   padding-top: 10px;
 }
@@ -38,14 +37,16 @@ md-card {
   font-size: 15px;
   /*font-size: 1.8vw;*/
   width: 100%;
-  text-indent: 25px;
+  /*text-indent: 25px;*/
   margin: auto;
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
 .resultsTop{
 text-indent: 0px;
-
+}
+th,td{
+padding-left: 25px;
 }
 md-content {
   width: 100%;

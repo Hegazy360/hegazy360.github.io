@@ -45,31 +45,31 @@
             <!-- Invisible results table for better alignment -->
             <table>
               <tr>
-                <td>
+                <td class="column1">
                   <h3>{{"Place: "}}</h3>
                 </td>
-                <td>
+                <td class="column2">
                   <h3>{{currentWeatherData.name}},{{currentWeatherData.sys.country}}</h3>
                 </td>
               </tr>
 
               <tr>
-                <td>
+                <td class="column1">
                   <h3>{{"Description: "}}</h3>
                 </td>
-                <td>
+                <td class="column2">
                   <h3>{{currentWeatherData.weather[0].description}}</h3>
                 </td>
-                <td>
+                <td class="column3">
                   <img src="http://openweathermap.org/img/w/{{currentWeatherData.weather[0].icon}}.png" alt="Weather Icon"/>
                 </td>
               </tr>
 
               <tr>
-                <td>
+                <td class="column1">
                   <h3>{{"Temperature: "}}</h3>
                 </td>
-                <td>
+                <td class="column2">
                   <h3>{{currentWeatherData.main.temp + " &deg;C"}}</h3>
                 </td>
               </tr>
@@ -90,7 +90,7 @@
             <!-- Invisible results table for better alignment -->
             <table>
               <tr>
-                <td>
+                <td class="column1">
                   <h3>{{"Place: "}}</h3>
                   <h3>{{"Description: "}}</h3>
                   <h3>{{"Temperature: "}}</h3>
@@ -99,7 +99,7 @@
                   <h3>{{"Wind Speed: "}}</h3>
                   <h3>{{"Humidity: "}}</h3>
                 </td>
-                <td>
+                <td class="column2">
                   <h3>{{weatherData.city.name}},{{weatherData.city.country}}</h3>
                   <h3>{{dayWeatherData.weather[0].description}}</h3>
                   <h3>{{dayWeatherData.temp.day + " &deg;C"}}</h3>
