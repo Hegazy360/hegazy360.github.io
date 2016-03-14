@@ -32,7 +32,7 @@
 
       <div class="app-content">
 
-        <md-card class="results ng-hide md-flex" ng-show="searchTerm" ng-repeat="weather in currentWeatherData.weather">
+        <md-card class="results ng-hide md-flex" ng-show="searchTerm" ng-repeat="weather in currentWeatherData.weather | limitTo:1">
 
           <md-card class="show resultsTop" layout="row" layout-align="center center">
             <h3>Current Weather</h3>
