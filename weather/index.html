@@ -22,13 +22,13 @@
 
     </md-toolbar>
 
-    <md-content layout="column" layout-align="center center">
+    <md-content class="md-flex" layout="column" layout-align="center center">
       <!-- app content : search bar + results -->
       <md-input-container class="md-block searchBar md-flex" id="searchBar" layout="row" layout-align="center none">
         <label>City</label>
         <input ng-model="searchTerm" autocomplete="off">
+        <md-progress-linear class="ng-hide" ng-show="isSearching" md-mode="indeterminate"></md-progress-linear>
       </md-input-container>
-      <md-progress-linear class="ng-hide" ng-show="isSearching" md-mode="indeterminate"></md-progress-linear>
 
       <div class="app-content">
 
