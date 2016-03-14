@@ -1,8 +1,7 @@
-html,body {
+html, body {
   background-color: #E0F2F1;
-  height:100%;
+  height: 100%;
 }
-
 .app-content {
   width: 70%;
   min-width: 360px;
@@ -10,16 +9,12 @@ html,body {
   right: 10%;
   top: 0;
   overflow: auto;
-
 }
 .searchBar {
   position: relative;
   width: 70%;
   height: 60px;
-
 }
-
-
 md-toolbar {
   border-style: solid;
   border-width: 1px;
@@ -39,11 +34,11 @@ md-card {
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
-.resultsTop{
-text-indent: 0px;
+.resultsTop {
+  text-indent: 0px;
 }
-th,td{
-padding-left: 25px;
+th, td {
+  padding-left: 25px;
 }
 md-content {
   width: 100%;
