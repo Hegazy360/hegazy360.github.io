@@ -16,13 +16,9 @@ html,body {
   position: relative;
   width: 70%;
   height: 60px;
-  padding-top: 10px;
 }
 
-md-progress-linear {
-  width: 99.8%;
 
-}
 md-toolbar {
   border-style: solid;
   border-width: 1px;
@@ -38,7 +34,6 @@ md-card {
   /*font-size: 1.8vw;*/
   width: 100%;
   /*text-indent: 25px;*/
-  margin: auto;
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
@@ -47,9 +42,6 @@ text-indent: 0px;
 }
 th,td{
 padding-left: 25px;
-}
-.column3 {
-  padding-left: 0px;
 }
 md-content {
   width: 100%;
