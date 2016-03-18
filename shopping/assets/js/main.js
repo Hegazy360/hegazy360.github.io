@@ -8,6 +8,8 @@ var client = amazon.createClient({
   awsTag: "shoppiassi01a-21"
 });
 
+
+
 var clientInput;
 var chatWindow;
 var possibilities = ['Reply1\n\t', 'Reply2\n\t', 'Reply3\n\t'];
@@ -46,16 +48,15 @@ window.clic = function() {
   document.getElementById("client").value = "";
   chatWindow = document.getElementById("assisstant");
 
-  var findTableName = clientInput.match(/pants|pantalon|shoes|shoe/i);
+  var findMain = clientInput.match(/pants|pantalon|shoes|shoe/i);
 
-  if (/pants|pantalon/i.test(findTableName)) {
+  if (/pants|pantalon/i.test(findMain)) {
 
-    searchTerms("jeans","Men","blue");
-
+    searchTerms("pants","","Men","");
     possibilities = ['So you are looking for new pants,one second', 'On it!', 'Looking for your pants right now'];
     changeInterface();
-  } else if (/shoes|shoe/i.test(findTableName)) {
-    tableName = "shoes";
+  } else if (/shoes|shoe/i.test(findMain)) {
+    searchTerms("shoes","","Men","");
     possibilities = ['So you are looking for new shoes,one second', 'On it!', 'Looking for your shoes right now'];
     changeInterface();
   } else {
@@ -71,7 +72,7 @@ window.changeInterface = function() {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-window.searchTerms = function(main,sex,color){
+window.searchTerms = function(main,type,sex,color){
       client.itemSearch({
         keywords: main + ' ' + color,
         searchIndex: 'Fashion' + sex,
@@ -85,6 +86,7 @@ window.searchTerms = function(main,sex,color){
           console.log(results.length);
           console.log(response); // response (containing TotalPages, TotalResults, MoreSearchResultsUrl and so on)
           displayResults(results, response);
+          chatWindow.value = (chatWindow.value + "Assisstant : " + "Did you find what you were looking for ?" + "\n\t");
         }
       });
 }
