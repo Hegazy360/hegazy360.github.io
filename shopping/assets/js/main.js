@@ -14,6 +14,7 @@ var clientInput;
 var chatWindow;
 var possibilities = ['Reply1\n\t', 'Reply2\n\t', 'Reply3\n\t'];
 var reply;
+var waitingConfirmation;
 
 
 window.searchKeyPress = function(e) {
@@ -49,12 +50,15 @@ window.clic = function() {
   var sexList = ["men", "women", "kids", "babies"];
   var colorList = ["black", "white", "blue", "green", "red", "yellow"];
   var brandList = ["nike", "adidas", "samsung", "puma", "coq sportif", "sony", "htc", "lg"];
+  var positiveConfirmationList = ["yes","yeah","yep","good","great","did"];
+  var negativeConfirmationList = ["no","nope","nop","didn't"];
   // var findMain = clientInput.match(/pants|pantalon|shoes|shoe/i);
   var setMain = "";
   var setType = "";
   var setSex = "";
   var setColor = "";
   var setBrand = "";
+  var setConfirmation="none";
   var doSearch = 0;
   var doAnswerGreetings = 0;
   var doAnswerCondition = 0;
@@ -72,12 +76,16 @@ changeInterface("client");
     }
 
 
-    if (clientTerms[i].toLowerCase() == 'i' && clientTerms[i + 1].toLowerCase() == 'am') {
-
+    if (clientTerms[i].toLowerCase() == 'i' && typeof clientTerms[i + 1] != "undefined") {
+      if(clientTerms[i + 1].toLowerCase() == 'am'){
+      if (typeof clientTerms[i+2] == "undefined"){clientTerms[i+2] = " "};
+      if (typeof clientTerms[i+3] == "undefined"){clientTerms[i+3] = " "};
       if (conditionReplyList.indexOf(clientTerms[i + 2].toLowerCase()) >= 0 || conditionReplyList.indexOf(clientTerms[i + 3].toLowerCase()) >= 0) {
         doGladOfferService = 1;
-      }
+      }}
     } else if (clientTerms[i].toLowerCase() == 'i\'m') {
+      if (typeof clientTerms[i+1] == "undefined"){clientTerms[i+1] = " "};
+      if (typeof clientTerms[i+2] == "undefined"){clientTerms[i+2] = " "};
       if (conditionReplyList.indexOf(clientTerms[i + 1].toLowerCase()) >= 0 || conditionReplyList.indexOf(clientTerms[i + 2].toLowerCase()) >= 0) {
         doGladOfferService = 1;
       }
@@ -101,13 +109,38 @@ changeInterface("client");
       setBrand = ' ' + clientTerms[i];
       doSearch = 1;
     }
+    if (waitingConfirmation == 1 && positiveConfirmationList.indexOf(clientTerms[i].toLowerCase()) >=0 ){
+      setConfirmation="positive";
+    }
+    else if (waitingConfirmation == 1 && negativeConfirmationList.indexOf(clientTerms[i].toLowerCase()) >=0 )
+    {
+      setConfirmation="negative";
+    }
+
+    waitingConfirmation = 0;
   }
 
-  if (doSearch == 0 && doAnswerGreetings == 0 && doAnswerCondition == 0 && doOfferService == 0 && doGladOfferService == 0) {
+
+  if (doSearch == 0 && doAnswerGreetings == 0 && doAnswerCondition == 0 && doOfferService == 0 && doGladOfferService == 0 && setConfirmation=="none") {
     possibilities = ['Sorry I didn\'t understand'];
     changeInterface("assisstant");
-
   }
+
+
+  if (setConfirmation=="positive"){
+
+    possibilities = ['Glad I can help'];
+    changeInterface("assisstant");
+    setConfirmation = "none";
+  }
+  else if (setConfirmation == "negative"){
+    possibilities = ['Sorry,let\'s try again'];
+    changeInterface("assisstant");
+    setConfirmation = "none";
+  }
+
+
+
 
 
   if (doAnswerGreetings == 1 && doAnswerCondition == 1) {
@@ -155,9 +188,16 @@ changeInterface("client");
 
 window.changeInterface = function(mode) {
   if (mode == "assisstant") {
-    reply = possibilities[Math.floor(Math.random() * possibilities.length)];
-    chatWindow.value = (chatWindow.value + "Assisstant : " + reply + "\n\t");
-  } else {
+      reply = possibilities[Math.floor(Math.random() * possibilities.length)];
+window.setTimeout(chatWindow.value = (chatWindow.value + "Assisstant : " + reply + "\n\t"), 2000);
+
+
+
+  }
+
+
+
+  else {
     chatWindow.value = (chatWindow.value + "Client : " + clientInput + "\n\t");
 
   }
@@ -180,6 +220,7 @@ window.searchTerms = function(main, type, sex, color, brand) {
       console.log(response); // response (containing TotalPages, TotalResults, MoreSearchResultsUrl and so on)
       displayResults(results, response);
       chatWindow.value = (chatWindow.value + "Assisstant : " + "Did you find what you were looking for ?" + "\n\t");
+      waitingConfirmation = 1;
     }
   });
 }
