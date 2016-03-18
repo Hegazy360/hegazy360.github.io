@@ -5,7 +5,7 @@ amazon = require('amazon-product-api');
 var client = amazon.createClient({
   awsId: "AKIAI5TZ5OVGKOGKXM6Q",
   awsSecret: "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",
-  awsTag: "shoppiassi01a-21"
+  awsTag: "shoppiassis0a-21"
 });
 
 
@@ -33,62 +33,155 @@ window.confirm = function() {
   if (document.getElementById("client").value.match(/^.*(?=.*[a-zA-Z]).*$/)) {
     clic();
   }
-
-
 }
 
 
 window.clic = function() {
-  var tableName;
-  var color;
-  var type;
-  var size;
   document.getElementById("searchResults").innerHTML = '';
   clientInput = document.getElementById("client").value;
   document.getElementById("client").value = "";
   chatWindow = document.getElementById("assisstant");
+  var greetingsList = ["hello","hey","hi", "bonjour", "bonsoir", "yo", "whatsup", "sup"];
+  var conditionQuestionsList = ["how are", "how're", "are you okay", "are you okay?"];
+  var conditionReplyList = ["fine", "good", "great", "okay"];
+  var mainList = ["jeans", "jean", "pants", "pant", "pantaloons", "pantaloon", "underwear", "shirt", "shirts", "shoes", "shoe", "sweater", "jacket", "dress", "tv", "television", "phone", "battery"];
+  var typeList = ["skinny", "slim", "baggy", "classic"];
+  var sexList = ["men", "women", "kids", "babies"];
+  var colorList = ["black", "white", "blue", "green", "red", "yellow"];
+  var brandList = ["nike", "adidas", "samsung", "puma", "coq sportif", "sony", "htc", "lg"];
+  // var findMain = clientInput.match(/pants|pantalon|shoes|shoe/i);
+  var setMain = "";
+  var setType = "";
+  var setSex = "";
+  var setColor = "";
+  var setBrand = "";
+  var doSearch = 0;
+  var doAnswerGreetings = 0;
+  var doAnswerCondition = 0;
+  var doOfferService = 0;
+  var doGladOfferService = 0;
 
-  var findMain = clientInput.match(/pants|pantalon|shoes|shoe/i);
+changeInterface("client");
+  clientTerms = clientInput.split(" ");
+  for (var i = 0; i < clientTerms.length; i++) {
+    if (greetingsList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      doAnswerGreetings = 1;
+    }
+    if (conditionQuestionsList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      doAnswerCondition = 1;
+    }
 
-  if (/pants|pantalon/i.test(findMain)) {
 
-    searchTerms("pants","","Men","");
-    possibilities = ['So you are looking for new pants,one second', 'On it!', 'Looking for your pants right now'];
-    changeInterface();
-  } else if (/shoes|shoe/i.test(findMain)) {
-    searchTerms("shoes","","Men","");
-    possibilities = ['So you are looking for new shoes,one second', 'On it!', 'Looking for your shoes right now'];
-    changeInterface();
-  } else {
-    possibilities = ['Sorry,I don\'t have what you\'re looking for', 'I didn\'t understant'];
-    changeInterface();
+    if (clientTerms[i].toLowerCase() == 'i' && clientTerms[i + 1].toLowerCase() == 'am') {
+
+      if (conditionReplyList.indexOf(clientTerms[i + 2].toLowerCase()) >= 0 || conditionReplyList.indexOf(clientTerms[i + 3].toLowerCase()) >= 0) {
+        doGladOfferService = 1;
+      }
+    } else if (clientTerms[i].toLowerCase() == 'i\'m') {
+      if (conditionReplyList.indexOf(clientTerms[i + 1].toLowerCase()) >= 0 || conditionReplyList.indexOf(clientTerms[i + 2].toLowerCase()) >= 0) {
+        doGladOfferService = 1;
+      }
+    }
+
+
+    if (mainList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      setMain = ' ' + clientTerms[i];
+      doSearch = 1;
+    }
+    if (typeList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      setType = ' ' + clientTerms[i];
+    }
+    if (sexList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      setSex = ' ' + clientTerms[i];
+    }
+    if (colorList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      setColor = ' ' + clientTerms[i];
+    }
+    if (brandList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      setBrand = ' ' + clientTerms[i];
+      doSearch = 1;
+    }
   }
+
+  if (doSearch == 0 && doAnswerGreetings == 0 && doAnswerCondition == 0 && doOfferService == 0 && doGladOfferService == 0) {
+    possibilities = ['Sorry I didn\'t understand'];
+    changeInterface("assisstant");
+
+  }
+
+
+  if (doAnswerGreetings == 1 && doAnswerCondition == 1) {
+    possibilities = ['Hello Mohamed,I\'m good,how are you?'];
+    doAnswerCondition = 0;
+    doAnswerGreetings = 0;
+    doOfferService = 1;
+    changeInterface("assisstant");
+  } else if (doAnswerGreetings == 1 && doAnswerCondition == 0) {
+    possibilities = ['Hello there'];
+    doAnswerGreetings = 0;
+    doOfferService = 1;
+    changeInterface("assisstant");
+  } else if (doAnswerGreetings == 0 && doAnswerCondition == 1) {
+    possibilities = ['I\'m good thank you,what about you?'];
+    doAnswerCondition = 0;
+    changeInterface("assisstant");
+  }
+
+  if (doOfferService == 1) {
+    possibilities = ['What can I help you with today ?'];
+    doOfferService = 0;
+    changeInterface("assisstant");
+
+
+
+  }
+
+  if (doGladOfferService == 1) {
+    possibilities = ['I\'m glad you are,what can I help you with today ?'];
+    doGladOfferService = 0;
+    changeInterface("assisstant");
+  }
+
+
+  if (doSearch == 1) {
+    possibilities = ['So you are looking for new' + setColor + setMain + ',one second', setColor + setBrand + setMain + ',Got it!', 'Looking for your' + setBrand + setMain + ' right now', 'Searching in the database for' + setColor + setBrand + setMain];
+    doSearch = 0;
+    changeInterface("assisstant");
+    searchTerms(setMain, setType, setSex, setColor, setBrand);
+  }
+
+
 }
 
-window.changeInterface = function() {
-  reply = possibilities[Math.floor(Math.random() * possibilities.length)];
-  chatWindow.value = (chatWindow.value + "Client : " + clientInput + "\n\t");
-  chatWindow.value = (chatWindow.value + "Assisstant : " + reply + "\n\t");
+window.changeInterface = function(mode) {
+  if (mode == "assisstant") {
+    reply = possibilities[Math.floor(Math.random() * possibilities.length)];
+    chatWindow.value = (chatWindow.value + "Assisstant : " + reply + "\n\t");
+  } else {
+    chatWindow.value = (chatWindow.value + "Client : " + clientInput + "\n\t");
+
+  }
+
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-window.searchTerms = function(main,type,sex,color){
-      client.itemSearch({
-        keywords: main + ' ' + color,
-        searchIndex: 'Fashion' + sex,
-        responseGroup: 'ItemAttributes,Offers,Images'
-      }, function(err, results, response) {
-        if (err) {
-          console.log(err);
-          chatWindow.value = (chatWindow.value + "Assisstant : " + "Sorry,I couldn't find what you are looking for" + "\n\t");
-        } else {
-          console.log(results); // products
-          console.log(results.length);
-          console.log(response); // response (containing TotalPages, TotalResults, MoreSearchResultsUrl and so on)
-          displayResults(results, response);
-          chatWindow.value = (chatWindow.value + "Assisstant : " + "Did you find what you were looking for ?" + "\n\t");
-        }
-      });
+window.searchTerms = function(main, type, sex, color, brand) {
+  client.itemSearch({
+    keywords: type + brand + main + color + sex,
+    searchIndex: 'All',
+    responseGroup: 'ItemAttributes,Offers,Images'
+  }, function(err, results, response) {
+    if (err) {
+      console.log(err);
+      chatWindow.value = (chatWindow.value + "Assisstant : " + "Sorry,I couldn't find what you are looking for" + "\n\t");
+    } else {
+      console.log(results); // products
+      console.log(results.length);
+      console.log(response); // response (containing TotalPages, TotalResults, MoreSearchResultsUrl and so on)
+      displayResults(results, response);
+      chatWindow.value = (chatWindow.value + "Assisstant : " + "Did you find what you were looking for ?" + "\n\t");
+    }
+  });
 }
 
 
