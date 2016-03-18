@@ -5,7 +5,7 @@ amazon = require('amazon-product-api');
 var client = amazon.createClient({
   awsId: "AKIAI5TZ5OVGKOGKXM6Q",
   awsSecret: "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",
-  awsTag: "shoppiassis0a-21"
+  awsTag: "shoppiassi01a-21"
 });
 
 var clientInput;
