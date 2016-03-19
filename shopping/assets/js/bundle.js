@@ -13,11 +13,11 @@ var client = amazon.createClient({
 
 var clientInput;
 var chatWindow;
-var possibilities = ['Reply1\n\t', 'Reply2\n\t', 'Reply3\n\t'];
+var possibilities = [];
 var reply;
 var waitingConfirmation;
 
-
+// fonction dans le cas de clavier
 window.searchKeyPress = function(e) {
   // look for window.event in case event isn't passed in
   e = e || window.event;
@@ -31,6 +31,7 @@ window.searchKeyPress = function(e) {
   return true;
 }
 
+// fonction dans le cas de souris
 window.confirm = function() {
   if (document.getElementById("client").value.match(/^.*(?=.*[a-zA-Z]).*$/)) {
     clic();
@@ -46,14 +47,13 @@ window.clic = function() {
   var greetingsList = ["hello", "hey", "hi", "bonjour", "bonsoir", "yo", "whatsup", "sup"];
   var conditionQuestionsList = ["how are", "how're", "are you okay", "are you okay?"];
   var conditionReplyList = ["fine", "good", "great", "okay"];
-  var mainList = ["jeans", "jean", "pants", "pant", "pantaloons", "pantaloon", "underwear", "shirt", "shirts", "shoes", "shoe", "sweater", "jacket", "dress", "tv", "television", "phone", "battery"];
-  var typeList = ["skinny", "slim", "baggy", "classic"];
-  var sexList = ["men", "women", "kids", "babies"];
-  var colorList = ["black", "white", "blue", "green", "red", "yellow"];
-  var brandList = ["nike", "adidas", "samsung", "puma", "coq sportif", "sony", "htc", "lg"];
-  var positiveConfirmationList = ["yes", "yeah", "yep", "good", "great", "did"];
+  var mainList = ["jeans", "jean", "pants", "pant", "pantaloons", "pantaloon", "underwear", "shirt", "shirts", "shoes", "shoe", "sweater", "jacket", "dress", "tv", "television", "phone","iphone", "battery","shorts","socks","makeup","bag","hat","beanie","laptop","watch","jewelry","bracelet","ring","chaine","glasses","sun-glasses"];
+  var typeList = ["skinny", "slim", "baggy", "classic","sport","sports"];
+  var sexList = ["men","man","women","woman","teenager","kids","kid","babies","baby"];
+  var colorList = ["black", "white", "blue", "green", "red", "yellow","purple","grey","orange","brown"];
+  var brandList = ["nike", "adidas", "samsung", "puma","timberland", "coq sportif", "sony", "htc", "lg","apple","blackberry","reebok","asics","vans"];
+  var positiveConfirmationList = ["yes", "yeah", "yep", "good", "great"];
   var negativeConfirmationList = ["no", "nope", "nop", "didn't"];
-  // var findMain = clientInput.match(/pants|pantalon|shoes|shoe/i);
   var setMain = "";
   var setType = "";
   var setSex = "";
@@ -125,6 +125,7 @@ window.clic = function() {
       setConfirmation = "negative";
     }
 
+
     waitingConfirmation = 0;
   }
 
@@ -135,8 +136,8 @@ window.clic = function() {
   }
 
 
-  if (setConfirmation == "positive") {
 
+  if (setConfirmation == "positive") {
     possibilities = ['Glad I can help'];
     changeInterface("assisstant");
     setConfirmation = "none";
