@@ -5,7 +5,7 @@ amazon = require('amazon-product-api');
 var client = amazon.createClient({
   awsId: "AKIAI5TZ5OVGKOGKXM6Q",
   awsSecret: "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",
-  awsTag: "shoppiassis0a-21"
+  awsTag: "shoppiassis04-21"
 });
 
 
@@ -42,7 +42,7 @@ window.clic = function() {
   clientInput = document.getElementById("client").value;
   document.getElementById("client").value = "";
   chatWindow = document.getElementById("assisstant");
-  var greetingsList = ["hello","hey","hi", "bonjour", "bonsoir", "yo", "whatsup", "sup"];
+  var greetingsList = ["hello", "hey", "hi", "bonjour", "bonsoir", "yo", "whatsup", "sup"];
   var conditionQuestionsList = ["how are", "how're", "are you okay", "are you okay?"];
   var conditionReplyList = ["fine", "good", "great", "okay"];
   var mainList = ["jeans", "jean", "pants", "pant", "pantaloons", "pantaloon", "underwear", "shirt", "shirts", "shoes", "shoe", "sweater", "jacket", "dress", "tv", "television", "phone", "battery"];
@@ -50,22 +50,22 @@ window.clic = function() {
   var sexList = ["men", "women", "kids", "babies"];
   var colorList = ["black", "white", "blue", "green", "red", "yellow"];
   var brandList = ["nike", "adidas", "samsung", "puma", "coq sportif", "sony", "htc", "lg"];
-  var positiveConfirmationList = ["yes","yeah","yep","good","great","did"];
-  var negativeConfirmationList = ["no","nope","nop","didn't"];
+  var positiveConfirmationList = ["yes", "yeah", "yep", "good", "great", "did"];
+  var negativeConfirmationList = ["no", "nope", "nop", "didn't"];
   // var findMain = clientInput.match(/pants|pantalon|shoes|shoe/i);
   var setMain = "";
   var setType = "";
   var setSex = "";
   var setColor = "";
   var setBrand = "";
-  var setConfirmation="none";
+  var setConfirmation = "none";
   var doSearch = 0;
   var doAnswerGreetings = 0;
   var doAnswerCondition = 0;
   var doOfferService = 0;
   var doGladOfferService = 0;
 
-changeInterface("client");
+  changeInterface("client");
   clientTerms = clientInput.split(" ");
   for (var i = 0; i < clientTerms.length; i++) {
     if (greetingsList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
@@ -77,15 +77,24 @@ changeInterface("client");
 
 
     if (clientTerms[i].toLowerCase() == 'i' && typeof clientTerms[i + 1] != "undefined") {
-      if(clientTerms[i + 1].toLowerCase() == 'am'){
-      if (typeof clientTerms[i+2] == "undefined"){clientTerms[i+2] = " "};
-      if (typeof clientTerms[i+3] == "undefined"){clientTerms[i+3] = " "};
-      if (conditionReplyList.indexOf(clientTerms[i + 2].toLowerCase()) >= 0 || conditionReplyList.indexOf(clientTerms[i + 3].toLowerCase()) >= 0) {
-        doGladOfferService = 1;
-      }}
+      if (clientTerms[i + 1].toLowerCase() == 'am') {
+        if (typeof clientTerms[i + 2] == "undefined") {
+          clientTerms[i + 2] = " "
+        };
+        if (typeof clientTerms[i + 3] == "undefined") {
+          clientTerms[i + 3] = " "
+        };
+        if (conditionReplyList.indexOf(clientTerms[i + 2].toLowerCase()) >= 0 || conditionReplyList.indexOf(clientTerms[i + 3].toLowerCase()) >= 0) {
+          doGladOfferService = 1;
+        }
+      }
     } else if (clientTerms[i].toLowerCase() == 'i\'m') {
-      if (typeof clientTerms[i+1] == "undefined"){clientTerms[i+1] = " "};
-      if (typeof clientTerms[i+2] == "undefined"){clientTerms[i+2] = " "};
+      if (typeof clientTerms[i + 1] == "undefined") {
+        clientTerms[i + 1] = " "
+      };
+      if (typeof clientTerms[i + 2] == "undefined") {
+        clientTerms[i + 2] = " "
+      };
       if (conditionReplyList.indexOf(clientTerms[i + 1].toLowerCase()) >= 0 || conditionReplyList.indexOf(clientTerms[i + 2].toLowerCase()) >= 0) {
         doGladOfferService = 1;
       }
@@ -109,31 +118,28 @@ changeInterface("client");
       setBrand = ' ' + clientTerms[i];
       doSearch = 1;
     }
-    if (waitingConfirmation == 1 && positiveConfirmationList.indexOf(clientTerms[i].toLowerCase()) >=0 ){
-      setConfirmation="positive";
-    }
-    else if (waitingConfirmation == 1 && negativeConfirmationList.indexOf(clientTerms[i].toLowerCase()) >=0 )
-    {
-      setConfirmation="negative";
+    if (waitingConfirmation == 1 && positiveConfirmationList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      setConfirmation = "positive";
+    } else if (waitingConfirmation == 1 && negativeConfirmationList.indexOf(clientTerms[i].toLowerCase()) >= 0) {
+      setConfirmation = "negative";
     }
 
     waitingConfirmation = 0;
   }
 
 
-  if (doSearch == 0 && doAnswerGreetings == 0 && doAnswerCondition == 0 && doOfferService == 0 && doGladOfferService == 0 && setConfirmation=="none") {
+  if (doSearch == 0 && doAnswerGreetings == 0 && doAnswerCondition == 0 && doOfferService == 0 && doGladOfferService == 0 && setConfirmation == "none") {
     possibilities = ['Sorry I didn\'t understand'];
     changeInterface("assisstant");
   }
 
 
-  if (setConfirmation=="positive"){
+  if (setConfirmation == "positive") {
 
     possibilities = ['Glad I can help'];
     changeInterface("assisstant");
     setConfirmation = "none";
-  }
-  else if (setConfirmation == "negative"){
+  } else if (setConfirmation == "negative") {
     possibilities = ['Sorry,let\'s try again'];
     changeInterface("assisstant");
     setConfirmation = "none";
@@ -188,16 +194,10 @@ changeInterface("client");
 
 window.changeInterface = function(mode) {
   if (mode == "assisstant") {
-      reply = possibilities[Math.floor(Math.random() * possibilities.length)];
-window.setTimeout(chatWindow.value = (chatWindow.value + "Assisstant : " + reply + "\n\t"), 2000);
+    reply = possibilities[Math.floor(Math.random() * possibilities.length)];
+    chatWindow.value = (chatWindow.value + "Assisstant : " + reply + "\n\t");
 
-
-
-  }
-
-
-
-  else {
+  } else {
     chatWindow.value = (chatWindow.value + "Client : " + clientInput + "\n\t");
 
   }
