@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HOME</title>
+        <link rel="stylesheet" href="assets/css/header-style.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="assets/css/home-style.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="assets/css/basic-form-style.css" media="screen" title="no title" charset="utf-8">
+
+        <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="assets/js/main.js" async></script>
+
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-logo">
+                <h3>Entrepreneurs Club</h3>
+            </div>
+            <div class="header-sign-buttons">
+                <button type="button" name="sign-in-header" id="sign-in-header" onclick="checkPressed(1)">
+                    Log in
+                </button>
+                <button type="button" name="sign-up-header" id="sign-up-header" onclick="checkPressed(2)">
+                    Sign up
+                </button>
+            </div>
+        </div>
+
+        <div class="home-container">
+            <h2 id="intro" name="intro">It's time to make a difference...</h2>
+            <br>
+
+            <div class="sign-buttons-container">
+                <button type="button" name="sign-in-button" id="sign-in-button" onclick="checkPressed(1)">
+                  Log in
+                </button>
+                <button type="button" name="sign-up-button" id="sign-up-button" onclick="checkPressed(2)">
+                  Sign up
+                </button>
+            </div>
+            <button type="button" name="more" id="more">Know More</button>
+
+            <div class="overlay" id="overlay" onclick='checkPressedDiv(event)'>
+
+                <div class="login-form-container" id="login-form-container">
+                    <h1>Log in</h1>
+                    <form class="sign-form" id="login-form" action="./index.php" method="post">
+                        <label for="email">Email:</label><br>
+                        <input type="email" name="email" id="email"><br>
+                        <label for="password">Password:</label><br>
+                        <input type="password" name="password"><br>
+                        <button type="submit" name="submit" id="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="signup-form-container" id="signup-form-container">
+                    <h1>Sign up</h1>
+                    <form class="sign-form" id="signup-form" action="./index.php" onSubmit="return validateSignUpForm()" method="post">
+                        <label for="name">Name:</label><br>
+                        <input type="text" name="name" id="name" onblur="validate(this,'errorName')">
+                        <span class="error" id="errorName"></span><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" name="email" id="email" onblur="validate(this,'errorEmail')">
+                        <span class="error" id="errorEmail"></span><br>
+                        <label for="email">Confirm Email:</label><br>
+                        <input type="email" name="email-confirm" id="email-confirm" onblur="validate(this,'errorEmailConfirm')">
+                        <span class="error" id="errorEmailConfirm"></span><br>
+                        <label for="password">Password:</label><br>
+                        <input type="password" name="password" id="password" onblur="validate(this,'errorPassword')">
+                        <span class="error" id="errorPassword"></span><br>
+                        <label for="password-confirm">Confirm Password:</label><br>
+                        <input type="password" name="password-confirm" id="password-confirm" onblur="validate(this,'errorPasswordConfirm')">
+                        <span class="error" id="errorPasswordConfirm"></span><br>
+
+                        <button type="submit" name="submit" id="submit">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

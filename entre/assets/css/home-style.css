@@ -1,0 +1,61 @@
+body, input,button,a {
+    font-family: 'Fira Sans', sans-serif;
+    color: #DFDCE3;
+}
+body {
+    background: url("../img/bg2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+a {
+  text-decoration: none;
+}
+
+.home-container {
+    margin: auto;
+    text-align: center;
+    width: 70%;
+    margin-top: 200px;
+}
+#intro {
+    font-size: 60px;
+}
+.sign-buttons-container {
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #DFDCE3;
+}
+#sign-up-button, #sign-in-button, #more {
+    width: 250px;
+    height: 60px;
+    font-size: 20px;
+    text-align: center;
+    transition: font 0.3s ease-in-out;
+}
+
+#sign-up-button {
+    border-left: 2px solid #DFDCE3;
+}
+#sign-up-button:hover, #sign-in-button:hover,#more:hover {
+    color: white;
+    font-size: 26px;
+}
+button:focus {
+outline: 0px;
+}
+#more {
+    margin-top: 150px;
+    width: 150px;
+    height: 30px;
+    font-size: 17px;
+    text-decoration: underline;
+}
+.home-container button {
+    background: none;
+    color: #DFDCE3;
+    border-style: none;
+}

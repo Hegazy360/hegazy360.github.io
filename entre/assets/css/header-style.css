@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+    background-color: #424242;
+    height: 40px;
+    color: #DFDCE3 !important;
+}
+.header button {
+    color: white;
+    background: none;
+    border-style: none;
+}
+.header-sign-buttons {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 5px;
+}
+.header-sign-buttons button {
+    font-family: 'Courgette', cursive;
+    font-size: 17px;
+}
+
+.header-logo h3 {
+
+font-family: 'Courgette', cursive;
+margin: auto;
+margin-top: 3px;
+margin-left: 5px;
+font-size: 26px;
+
+}
+a {
+  text-decoration: none;
+  color:#DFDCE3 !important;
+}
