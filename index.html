@@ -1,141 +1,260 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>MOHAMED HEGAZY</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/jquery-2.2.2.min.js"></script>
-  </head>
-  <body class="{% if page.home %}home blog logged-in{% endif %} {{ page.type }} {%if page.body-name%}{{ page.body-name }}{% endif %}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>MOHAMED HEGAZY</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/main-cv.css" charset="utf-8">
+        <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Marck+Script' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="assets/js/main-cv.js"></script>
+        <script src="assets/js/scrollify/jquery.scrollify.min.js"></script>
 
-    <div class="home-wrap">
-      <div class="mobile-nav">
-        <ul>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#youtube">YouTube</a>
-          </li>
-          <li>
-            <a href="#articles">Articles</a>
-          </li>
-          <li>
-            <a href="#design">Design</a>
-          </li>
-          <li>
-            <a href="#notes">Notes</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-      <header>
-        <div class="header-position">
-          <h1 class="logo">Mohamed Hegazy</h1>
-          <nav class="site-nav">
-            <ul>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#youtube">YouTube</a>
-              </li>
-              <li>
-                <a href="#articles">Articles</a>
-              </li>
-              <li>
-                <a href="#design">Design</a>
-              </li>
-              <li>
-                <a href="#notes">Notes</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
-          <a href="mailto:m.hegazy94@hotmail.com" class="email-link">+email me</a>
-          <div class="mobile-nav-toggle">
-            <span></span>
-          </div>
+    </head>
+    <body>
+
+        <div class="home-wrap">
+            <div class="mobile-nav">
+                <ul>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#youtube">YouTube</a>
+                    </li>
+                    <li>
+                        <a href="#resume">Resume</a>
+                    </li>
+                    <li>
+                        <a href="#design">Design</a>
+                    </li>
+                    <li>
+                        <a href="#notes">Notes</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <header>
+                <div class="header-position">
+                    <h1 class="logo">Mohamed Hegazy</h1>
+                    <nav class="site-nav">
+                        <ul>
+                            <li>
+                                <a href="#about">About</a>
+                            </li>
+                            <li>
+                                <a href="#youtube">YouTube</a>
+                            </li>
+                            <li>
+                                <a href="#resume">Resume</a>
+                            </li>
+                            <li>
+                                <a href="#design">Design</a>
+                            </li>
+                            <li>
+                                <a href="#notes">Notes</a>
+                            </li>
+                            <li>
+                                <a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="mailto:m.hegazy94@hotmail.com" class="email-link">+email me</a>
+                    <div class="mobile-nav-toggle">
+                        <span></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="home-sections">
+
+                <section id="about" class="about">
+                    <div class="flex flex--center">
+                        <div class="col-1 push-right">
+                            <h2>Mohamed is trying to grow up,</h2>
+                            <p class="home-lead">but instead spends his time...</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="youtube" class="youtube">
+                    <div class="flex flex--space-around">
+                        <div class="col-1">
+                            <div class="video-strip"></div>
+                            <div class="flex-video">
+                                <iframe src="https://www.youtube.com/embed/videoseries?list=PLdj_axw7HNUaHBgXFOE9v4zhn2bRBJpd5&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-1 order-first">
+                            <p class="home-lead outdented">...learning how to be a nerd online...</p>
+                            <a href="https://www.youtube.com/playlist?list=PLdj_axw7HNUaHBgXFOE9v4zhn2bRBJpd5" target="_blank" class="home-cta">Go to playlist</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="resume" class="resume">
+                    <div class="cv-container">
+                        <div class="cv-header">
+                            <div class="name">
+                                <h2 class="name title">Mohamed Hegazy</h2>
+                            </div>
+                            <div class="personel-info" id="personel-info">
+                                <ul class="personel-info-list" id="personel-info-list">
+                                    <li class="item" style="opacity:0">Email :
+                                        <br>
+                                        <a href="mailto:m.hegazy94@hotmail.com">m.hegazy94@hotmail.com</a>
+                                    </li>
+                                    <li class="item" style="opacity:0">Phone :
+                                        <br>+33782772950</li>
+                                    <li class="item" style="opacity:0">Github :
+                                        <br>
+                                        <a href="https://github.com/Hegazy360">github.com/Hegazy360</a>
+                                    </li>
+                                    <li class="item" style="opacity:0">LinkedIn :
+                                        <br>
+                                        <a href="https://www.linkedin.com/in/mhegazy94">linkedin.com/in/mhegazy94</a>
+                                    </li>
+                                    <li class="item" style="opacity:0">Facebook :
+                                        <br>
+                                        <a href="https://www.facebook.com/Hegazy94">facebook.com/Hegazy94</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3 class="title personel" id="personel" onclick="slide()">Personel</h3>
+                        </div>
+
+                        <div class="cv-body">
+
+                            <div class="profile hideme">
+                                <h2 class="title">About me</h2>
+                                <hr class="underline">
+                                <p>
+                                    I'm pationate about modern art and programming,so I try to mix both to create beautiful and practical projects.<br>
+                                    I'm continously learning about new technologies and ways that can help become more creative and save more time.<br>
+                                </p>
+
+                            </div>
+                            <hr class="separator hideme">
+                            <div class="objective hideme">
+                                <h2 class="title">Objective</h2>
+                                <hr class="underline">
+                                <p>
+                                    To work and innovate in what I love and be surrounded by people with similar interests and passion or related who I can learn from .
+                                </p>
+
+                            </div>
+                            <hr class="separator hideme">
+
+                            <div class="study hideme">
+                                <h2 class="title">Field Of Study</h2>
+                                <hr class="underline">
+
+                                <div class="summary">
+                                    I'm a computer science student since 2012
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td class="date">
+                                            2012-2014
+                                        </td>
+                                        <td>
+                                            Faculty of Engineering - Alexandria University - Egypt (Discontinued due to the unstable state of Egypt)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">
+                                            2014-2017
+                                        </td>
+
+                                        <td>
+                                            Jean Monnet University - Saint-Etienne - France
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <hr class="separator hideme">
+
+                            <div class="experience hideme">
+                                <h2 class="title">Experience/Projects</h2>
+                                <hr class="underline">
+                                <div class="summary">
+                                    Source code and other projects available at :
+                                    <a href="http://github.com/Hegazy360">github.com/Hegazy360</a>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td class="date">
+                                            2015-2016
+                                        </td>
+                                        <td>
+                                            Entrepreneurs Club - Backend/Frontend -
+                                            <a href="http://hegazy.byethost17.com">hegazy.byethost17.com</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="date">
+                                            2015-2016
+                                        </td>
+                                        <td>
+                                            Weather App - Backend/Frontend -
+                                            <a href="http://hegazy360.github.io/weather">hegazy360.github.io/weather</a>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <hr class="separator hideme">
+                            <div class="skills hideme">
+                                <h2 class="title">Skills</h2>
+                                <hr class="underline">
+                                <div class="skills-section">
+                                    <div class="section1">
+                                        <ul>
+                                            <li>HTML/CSS</li>
+                                            <li>JADE/SASS</li>
+                                            <li>JS/jQuery</li>
+                                            <li>PHP</li>
+                                            <li>MySQL</li>
+                                            <li>Photoshop</li>
+                                            <li>Project Management (SCRUM)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section2">
+                                        <ul>
+                                            <li>Friendly</li>
+                                            <li>Creative</li>
+                                            <li>Team Player</li>
+                                            <li>Self Learner</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="separator hideme">
+                            <div class="interests hideme">
+                                <h2 class="title">Interests</h2>
+                                <hr class="underline">
+
+                            </div>
+                            <hr class="separator hideme">
+
+                        </div>
+
+                    </div>
+                </section>
+                <footer id="contact" class="home-footer">
+                    <a href="mailto:travisneilson@gmail.com">m.hegazy94@hotmail.com</a>
+                </footer>
+
+            </div>
         </div>
-      </header>
 
-      <div class="home-sections">
+        <script src="assets/js/functions.js"></script>
 
-        <section id="about" class="about">
-          <div class="flex flex--center">
-            <div class="col-1 push-right">
-              <h2>Mohamed is trying to grow up,</h2>
-              <p class="home-lead">but instead spends his time...</p>
-            </div>
-          </div>
-        </section>
-        <section id="youtube" class="youtube">
-          <div class="flex flex--space-around">
-            <div class="col-1">
-              <div class="video-strip"></div>
-              <div class="flex-video">
-                <iframe src="https://www.youtube.com/embed/videoseries?list=PLdj_axw7HNUaHBgXFOE9v4zhn2bRBJpd5&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-            <div class="col-1 order-first">
-              <p class="home-lead outdented">...learning how to be a nerd online...</p>
-              <a href="https://www.youtube.com/playlist?list=PLdj_axw7HNUaHBgXFOE9v4zhn2bRBJpd5" target="_blank" class="home-cta">Go to playlist</a>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="flex flex--center">
-            <div class="col-1">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="col-1">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="flex flex--space-around">
-            <div class="col-1">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="col-1 order-first">
-              <p>CTA Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="flex flex--center">
-            <div class="col-2">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="flex flex--center">
-            <div class="col-50 flex flex--center">
-              <div class="col-1">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              </div>
-            </div>
-            <div class="col-50">
-              <p>CTA Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </section>
-        <footer id="contact" class="home-footer">
-          <a href="mailto:travisneilson@gmail.com">m.hegazy94@hotmail.com</a>
-        </footer>
-
-      </div>
-    </div>
-
-    <script src="assets/js/functions.js"></script>
-
-  </body>
+    </body>
 </html>
