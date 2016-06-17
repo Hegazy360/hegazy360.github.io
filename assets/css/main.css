@@ -475,7 +475,8 @@ body {
 .home-wrap header {
   width: 135px;
   background: white;
-  padding: 30px 0; }
+  padding: 30px 0;
+  z-index: 10;}
   .home-wrap header .header-position {
     position: fixed;
     top: 30px;
@@ -712,6 +713,9 @@ section.youtube {
       font-size: 20px; } }
   .home-footer a:hover {
     background: #d82121; }
+  .home-footer {
+    margin-top: -50px;
+  }
 
 .home-wrap {
   display: -webkit-flex;
